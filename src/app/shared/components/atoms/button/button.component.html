@@ -1,0 +1,31 @@
+<button
+	matButton="filled"
+	(click)="onClicked($event)"
+	[disabled]="disabled"
+	[type]="type"
+	[id]="buttonId"
+	[style]="{
+		width: isFullWidth ? '100%' : (data?.style?.width ?? 'auto'),
+		minWidth: data?.style?.minWidth ?? 'auto',
+		height: data?.style?.height ?? '2.5rem',
+		fontSize: data?.style?.fontSize ?? '0.875rem',
+		borderRadius: data?.style?.borderRadius ?? '0.25rem',
+		padding: data?.style?.padding ?? '',
+		boxSizing: data?.style?.boxSizing ?? '',
+	}"
+	class="button"
+	[ngClass]="{
+		primary: severity === BUTTON_TYPE.PRIMARY,
+		dark: severity === BUTTON_TYPE.DARK,
+		light: severity === BUTTON_TYPE.LIGHT,
+		light_dark: severity === BUTTON_TYPE.LIGHT_DARK,
+		button_link: severity === BUTTON_TYPE.LINK,
+		disabled: disabled,
+	}"
+>
+	@if (data && !!data.img) {
+		<img [src]="'assets/svg/buttons' + data.img" [alt]="data.img" loading="lazy" />
+	} @else {
+		{{label}}
+	}
+</button>

@@ -1,0 +1,19 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav [mode]="'over'">
+        <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+        <p>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <app-navbar (sidebarAction)="sidenav.toggle()"></app-navbar>
+        <router-outlet />
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+<!-- Copyright 2025 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at https://angular.io/license -->
