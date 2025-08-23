@@ -1,5 +1,5 @@
 import { FormControl, NgControl } from '@angular/forms';
-import { NumberRangeDirective } from './numberRange';
+import { NumberRangeDirective } from './numberRange.directive';
 
 describe('NumberRangeDirective', () => {
   let directive: NumberRangeDirective;
@@ -13,12 +13,14 @@ describe('NumberRangeDirective', () => {
     directive.max = 99;
   });
 
-  it('debería crear la directiva', () => {
+  it('should create', () => {
     expect(directive).toBeTruthy();
   });
 
   it('debería corregir valor menor que min', () => {
-    const input = { value: '0' } as HTMLInputElement;
+    const input = document.createElement('input');
+    input.value = '0';
+
     directive.onInput({ target: input } as any);
 
     expect(control.value).toBe(1);
@@ -26,7 +28,9 @@ describe('NumberRangeDirective', () => {
   });
 
   it('debería corregir valor mayor que max', () => {
-    const input = { value: '150' } as HTMLInputElement;
+    const input = document.createElement('input');
+    input.value = '150';
+
     directive.onInput({ target: input } as any);
 
     expect(control.value).toBe(99);
@@ -34,7 +38,9 @@ describe('NumberRangeDirective', () => {
   });
 
   it('debería aceptar valor dentro del rango', () => {
-    const input = { value: '50' } as HTMLInputElement;
+    const input = document.createElement('input');
+    input.value = '50';
+
     directive.onInput({ target: input } as any);
 
     expect(control.value).toBe(50);
@@ -42,10 +48,32 @@ describe('NumberRangeDirective', () => {
   });
 
   it('debería resetear si no es número', () => {
-    const input = { value: 'abc' } as HTMLInputElement;
+    const input = document.createElement('input');
+    input.value = 'abc';
+
     directive.onInput({ target: input } as any);
 
     expect(control.value).toBeNull();
-    expect(input.value).toBe('abc'); // input sigue mostrando lo que escribió el user
+    expect(input.value).toBe('abc'); // sigue mostrando lo escrito
+  });
+
+  it('debería aceptar exactamente el min', () => {
+    const input = document.createElement('input');
+    input.value = '1';
+
+    directive.onInput({ target: input } as any);
+
+    expect(control.value).toBe(1);
+    expect(input.value).toBe('1');
+  });
+
+  it('debería aceptar exactamente el max', () => {
+    const input = document.createElement('input');
+    input.value = '99';
+
+    directive.onInput({ target: input } as any);
+
+    expect(control.value).toBe(99);
+    expect(input.value).toBe('99');
   });
 });
