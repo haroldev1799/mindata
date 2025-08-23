@@ -8,6 +8,4 @@ import { ModalLoaderComponent } from './shared/components/molecules/modals/modal
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })
-export class AppComponent {
-  title = 'frontend-heroes';
-}
+export class AppComponent {}

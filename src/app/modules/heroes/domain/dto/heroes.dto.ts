@@ -5,7 +5,7 @@ export interface Hero {
   name: string;
   power?: string;
   universe?: 'Marvel' | 'DC' | 'Other';
-  age: string;
+  age: number;
   createdAt?: number;
   updatedAt: number;
 }
@@ -14,7 +14,7 @@ export interface HeroForm {
   name: string;
   power?: string;
   universe?: 'Marvel' | 'DC' | 'Other';
-  age: string;
+  age: number;
 }
 
 export type CreateHeroRequest = Omit<Hero, 'id'>;
