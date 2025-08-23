@@ -17,20 +17,20 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     providers,
     provideAnimationsAsync(),
-		provideHttpClient(
-			// DI-based interceptors must be explicitly enabled.
-			withInterceptorsFromDi(),
-		),
-		{
-			provide: HTTP_INTERCEPTORS,
-			useClass: HttpErrorInterceptor,
-			multi: true,
-		},
-		{
-			provide: HTTP_INTERCEPTORS,
-			useClass: HttpAuthInterceptor,
-			multi: true,
-		},
-		{ provide: LOCALE_ID, useValue: 'es' }
+	provideHttpClient(
+		// DI-based interceptors must be explicitly enabled.
+		withInterceptorsFromDi(),
+	),
+	{
+		provide: HTTP_INTERCEPTORS,
+		useClass: HttpErrorInterceptor,
+		multi: true,
+	},
+	{
+		provide: HTTP_INTERCEPTORS,
+		useClass: HttpAuthInterceptor,
+		multi: true,
+	},
+	{ provide: LOCALE_ID, useValue: 'es' }
   ]
 };

@@ -56,7 +56,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
 						ModalErrorComponent
 					);
 				}
-				this.loaderService.requestLoaded(false);
+				this.loaderService.hide();
 				return throwError(() => error);
 			}),
 		);

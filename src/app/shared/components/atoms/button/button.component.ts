@@ -1,11 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ButtonData, ButtonType, ButtonTypeComponent } from './button.interface';
 import {MatButtonModule} from '@angular/material/button';
-import { NgClass } from '@angular/common';
 
 @Component({
 	selector: 'app-button',
-	imports: [NgClass, MatButtonModule],
+	imports: [MatButtonModule],
 	templateUrl: './button.component.html',
 	styleUrl: './button.component.sass',
 })

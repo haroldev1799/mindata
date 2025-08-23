@@ -2,8 +2,8 @@ import { APP_ROUTE_NAMES } from 'src/app/app.routenames';
 
 export enum HEROE_ROUTE_NAMES {
 	LIST = 'listado',
-	REGISTER = 'registro',
-	EDIT = 'olvidaste-contrasena'
+	REGISTER = 'crear',
+	EDIT = 'editar'
 }
 
 export const HEROE_ROUTE_NAMES_GLOBAL = {

@@ -16,7 +16,7 @@ export const routes: Routes = [
 				loadComponent: () => import('./presentation/pages/heroes-create/heroes-create.component').then((m) => m.HeroesCreateComponent),
 			},
 			{
-				path: HEROE_ROUTE_NAMES.EDIT,
+				path: `${HEROE_ROUTE_NAMES.EDIT}/:id`,
 				loadComponent: () =>
 					import('./presentation/pages/heroes-edit/heroes-edit.component').then((m) => m.HeroesEditComponent),
 			},

@@ -1,0 +1,21 @@
+<div class="flex flex-column gap-1">
+  <mat-form-field class="w-full" hideRequiredMarker>
+    <mat-label>{{label}}</mat-label>
+    <input
+        [type]="type"
+        [name]="name"
+        [id]="inputId"
+        [formControl]="control"
+        matInput
+        appTrimInput
+        [placeholder]="placeholder"
+        [maxLength]="maxLength"
+        [autocomplete]="autocomplete"
+        (keyup.enter)="enterInput()"
+        [ngClass]="{
+            invalid: labelError,
+        }"
+    />
+    <mat-error *ngIf="firstErrorMessage ">{{ firstErrorMessage  }}</mat-error>
+  </mat-form-field>
+</div>

@@ -1,0 +1,28 @@
+// trim-textarea.directive.ts
+import { Directive, HostListener, ElementRef } from '@angular/core';
+import { NgControl } from '@angular/forms';
+
+@Directive({
+	selector: '[appTrimInput]',
+	standalone: true
+})
+export class TrimInputDirective {
+	constructor(
+		private el: ElementRef,
+		private control: NgControl
+	) {}
+
+	@HostListener('blur')
+	onBlur(): void {
+		const currentValue: string = this.el.nativeElement.value;
+		const trimmedValue = currentValue.trim();
+
+		// Actualiza el valor del textarea en el DOM
+		this.el.nativeElement.value = trimmedValue;
+
+		// Actualiza el valor del control del formulario
+		if (this.control && this.control.control) {
+			this.control.control.setValue(trimmedValue, { emitEvent: false });
+		}
+	}
+}

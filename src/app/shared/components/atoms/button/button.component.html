@@ -1,5 +1,5 @@
 <button
-	matButton="filled"
+	mat-raised-button
 	(click)="onClicked($event)"
 	[disabled]="disabled"
 	[type]="type"
@@ -13,15 +13,7 @@
 		padding: data?.style?.padding ?? '',
 		boxSizing: data?.style?.boxSizing ?? '',
 	}"
-	class="button"
-	[ngClass]="{
-		primary: severity === BUTTON_TYPE.PRIMARY,
-		dark: severity === BUTTON_TYPE.DARK,
-		light: severity === BUTTON_TYPE.LIGHT,
-		light_dark: severity === BUTTON_TYPE.LIGHT_DARK,
-		button_link: severity === BUTTON_TYPE.LINK,
-		disabled: disabled,
-	}"
+	[color]="severity"
 >
 	@if (data && !!data.img) {
 		<img [src]="'assets/svg/buttons' + data.img" [alt]="data.img" loading="lazy" />
