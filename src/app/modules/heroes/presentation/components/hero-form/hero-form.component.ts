@@ -70,9 +70,9 @@ export class HeroFormComponent implements OnChanges {
   private _init(): void {
     this.formGroup = this.fb.group({
 			[HERO_FORM.Name]: ['', [Validators.required]],
-			[HERO_FORM.Power]: [[], [Validators.required]],
-			[HERO_FORM.Universe]: [[], [Validators.required]],
-			[HERO_FORM.Age]: [[], [Validators.required]],
+			[HERO_FORM.Power]: ['', [Validators.required]],
+			[HERO_FORM.Universe]: ['', [Validators.required]],
+			[HERO_FORM.Age]: [null, [Validators.required, Validators.min(1) ,Validators.max(99)]],
 		});
   }
 

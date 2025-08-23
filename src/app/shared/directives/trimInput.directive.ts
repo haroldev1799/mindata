@@ -16,6 +16,7 @@ export class TrimInputDirective {
 	onBlur(): void {
 		const currentValue: string = this.el.nativeElement.value;
 		const trimmedValue = currentValue.trim();
+		console.log()
 
 		// Actualiza el valor del textarea en el DOM
 		this.el.nativeElement.value = trimmedValue;

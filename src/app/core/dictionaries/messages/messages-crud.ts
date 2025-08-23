@@ -12,7 +12,7 @@ export const MODAL_MESSAGES: ModalMessages = {
 		title: 'Cancelar registro',
 		message: '¿Seguro que deseas cancelar este registro?',
 		buttonCancel: 'Cancelar',
-		buttonAction: 'Guardar',
+		buttonAction: 'Confirmar',
 		icon: 'exclamation-circle'
 	},
 	modalConfirmEdit: {
