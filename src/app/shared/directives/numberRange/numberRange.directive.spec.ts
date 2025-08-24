@@ -54,7 +54,7 @@ describe('NumberRangeDirective', () => {
     directive.onInput({ target: input } as any);
 
     expect(control.value).toBeNull();
-    expect(input.value).toBe('abc'); // sigue mostrando lo escrito
+    expect(input.value).toBe('abc');
   });
 
   it('debería aceptar exactamente el min', () => {

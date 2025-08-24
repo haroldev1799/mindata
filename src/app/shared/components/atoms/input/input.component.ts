@@ -34,7 +34,7 @@ export class InputComponent implements OnInit {
 	@Input() maxLength = 50;
 	@Input() min?: number | null;
 	@Input() max?: number | null;
-	@Input() labelAlt = ''; // label alternative when the label is not visible
+	@Input() labelAlt = '';
 	@Input() autocomplete = 'on';
 	@Input() addRequired = false;
 	@Input() disabled: boolean = false;

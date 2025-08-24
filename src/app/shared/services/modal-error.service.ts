@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalErrorMessage } from '@components/molecules/modals/modal-error/modal-error.interface';
 import { DataModalMessage } from '@components/molecules/modals/modal-message-ref/modal-message-ref.interface';
 import { Observable } from 'rxjs';
-import { ModalComponents } from '../components/molecules/modals/type-modules';
 
 @Injectable({
 	providedIn: 'root',
@@ -15,7 +14,7 @@ export class ModalErrorService {
     
 	setModalMessage<T, R = unknown>(
         modal: ModalErrorMessage,
-        component: ComponentType<T> // o Type<T>
+        component: ComponentType<T>
     ): Observable<R | undefined> {
         if (!modal.status) this.dataModal = null;
         const dialogRef = this.dialog.open<T, ModalErrorMessage['data'], R>(component, {

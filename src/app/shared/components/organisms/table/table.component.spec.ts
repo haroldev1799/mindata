@@ -42,60 +42,6 @@ describe('TableComponent', () => {
     expect(component.displayedColumns).toEqual(['name', 'age']);
   });
 
-  // it('should attach paginator and sort on ngOnChanges if dataSource present', () => {
-  //   // 👇 mock de MatPaginator con las props que Angular espera
-  //   const mockPaginator = jasmine.createSpyObj<MatPaginator>('MatPaginator', ['firstPage'], {
-  //     page: of(), length: 0, pageIndex: 0, pageSize: 5,
-  //     hasNextPage: () => false, hasPreviousPage: () => false
-  //   });
-
-  //   // 👇 mock de MatSort con sortChange como observable
-  //   const mockSort = jasmine.createSpyObj<MatSort>('MatSort', [], {
-  //     active: 'name', direction: 'asc', sortChange: of()
-  //   });
-
-  //   const dataSource = new MatTableDataSource<any>([{ name: 'Thor', age: 1500 }]);
-
-  //   component.paginator = mockPaginator;
-  //   component.sort = mockSort;
-  //   component.dataSource = dataSource;
-
-  //   component.ngOnChanges({
-  //     dataSource: {
-  //       currentValue: dataSource,
-  //       previousValue: null,
-  //       firstChange: true,
-  //       isFirstChange: () => true
-  //     }
-  //   });
-
-  //   expect(component.dataSource.paginator).toBe(mockPaginator);
-  //   expect(component.dataSource.sort).toBe(mockSort);
-  //   expect(mockPaginator.firstPage).toHaveBeenCalled();
-  // });
-
-  // it('should attach paginator and sort on ngAfterViewInit', () => {
-  //   const mockPaginator = jasmine.createSpyObj<MatPaginator>('MatPaginator', ['firstPage'], {
-  //     page: of(), length: 0, pageIndex: 0, pageSize: 5,
-  //     hasNextPage: () => false, hasPreviousPage: () => false
-  //   });
-
-  //   const mockSort = jasmine.createSpyObj<MatSort>('MatSort', [], {
-  //     active: 'age', direction: 'desc', sortChange: of()
-  //   });
-
-  //   const dataSource = new MatTableDataSource<any>([{ name: 'Spiderman', age: 25 }]);
-
-  //   component.paginator = mockPaginator;
-  //   component.sort = mockSort;
-  //   component.dataSource = dataSource;
-
-  //   component.ngAfterViewInit();
-
-  //   expect(component.dataSource.paginator).toBe(mockPaginator);
-  //   expect(component.dataSource.sort).toBe(mockSort);
-  // });
-
   it('should accept messageEmpty input', () => {
     component.messageEmpty = 'No records found';
     expect(component.messageEmpty).toBe('No records found');

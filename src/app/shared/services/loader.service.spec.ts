@@ -9,7 +9,6 @@ describe('LoaderService', () => {
   let matDialogRefSpy: jasmine.SpyObj<MatDialogRef<ModalLoaderComponent>>;
 
   beforeEach(() => {
-    // Creamos spies para MatDialog y MatDialogRef
     matDialogRefSpy = jasmine.createSpyObj('MatDialogRef', ['close']);
     matDialogSpy = jasmine.createSpyObj('MatDialog', ['open']);
 
@@ -42,8 +41,8 @@ describe('LoaderService', () => {
   it('should not open dialog again if dialogRef already exists', () => {
     matDialogSpy.open.and.returnValue(matDialogRefSpy);
 
-    service.show(); // primera vez
-    service.show(); // segunda vez
+    service.show();
+    service.show();
 
     expect(matDialogSpy.open).toHaveBeenCalledTimes(1);
   });
@@ -55,7 +54,7 @@ describe('LoaderService', () => {
     service.hide();
 
     expect(matDialogRefSpy.close).toHaveBeenCalled();
-    // Forzamos a llamar hide() otra vez para comprobar que no explota si ya está null
+
     service.hide();
     expect(matDialogRefSpy.close).toHaveBeenCalledTimes(1);
   });

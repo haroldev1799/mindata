@@ -10,7 +10,7 @@ describe('SnackbarComponent', () => {
     await TestBed.configureTestingModule({
       imports: [SnackbarComponent],
       providers: [
-        { provide: MatSnackBarRef, useValue: {} }, // mock vacío
+        { provide: MatSnackBarRef, useValue: {} },
         { provide: MAT_SNACK_BAR_DATA, useValue: { message: 'Test message' } }
       ]
     }).compileComponents();

@@ -18,7 +18,6 @@ export const appConfig: ApplicationConfig = {
     providers,
     provideAnimationsAsync(),
 	provideHttpClient(
-		// DI-based interceptors must be explicitly enabled.
 		withInterceptorsFromDi(),
 	),
 	{

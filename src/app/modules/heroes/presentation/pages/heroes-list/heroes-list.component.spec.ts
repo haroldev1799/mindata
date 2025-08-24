@@ -26,7 +26,7 @@ describe('HeroesListComponent', () => {
     mockModal = jasmine.createSpyObj('ModalMessageService', ['open']);
 
     await TestBed.configureTestingModule({
-      imports: [HeroesListComponent], // standalone
+      imports: [HeroesListComponent],
       providers: [
         { provide: HeroesRepository, useValue: mockRepo },
         { provide: Router, useValue: mockRouter },

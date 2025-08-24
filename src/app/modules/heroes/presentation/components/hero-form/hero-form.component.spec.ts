@@ -54,7 +54,7 @@ describe('HeroFormComponent', () => {
   });
 
   it('should show snackbar when form is invalid on save', () => {
-    component.formGroup.reset(); // invalida el form
+    component.formGroup.reset();
     component.clickBtnSave();
 
     expect(mockSnackBar.openFromComponent).toHaveBeenCalledWith(SnackbarComponent, {
@@ -69,7 +69,6 @@ describe('HeroFormComponent', () => {
     const heroForm: HeroForm = { name: 'Iron Man', power: 'Armor', universe: 'Marvel', age: 45 };
     component.formGroup.setValue(heroForm);
 
-    // Simulamos que el modal llama al callback de confirmación
     mockModal.open.and.callFake((_data, onConfirm) => onConfirm && onConfirm());
 
     component.clickBtnSave();

@@ -12,7 +12,7 @@ describe('ModalMessageComponent', () => {
     mockDialogRef = jasmine.createSpyObj('MatDialogRef', ['close']);
 
     await TestBed.configureTestingModule({
-      imports: [ModalMessageComponent], // standalone
+      imports: [ModalMessageComponent],
       providers: [
         { provide: MatDialogRef, useValue: mockDialogRef },
         {

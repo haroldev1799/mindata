@@ -24,7 +24,7 @@ describe('HeroesCreateComponent', () => {
     mockRouter = new MockRouter();
 
     await TestBed.configureTestingModule({
-      imports: [HeroesCreateComponent], // standalone
+      imports: [HeroesCreateComponent],
       providers: [
         { provide: HeroesRepository, useValue: mockRepo },
         { provide: Router, useValue: mockRouter }
@@ -57,6 +57,6 @@ describe('HeroesCreateComponent', () => {
       updatedAt: jasmine.any(Number)
     }));
 
-    expect(mockRouter.navigate).toHaveBeenCalledWith([HEROE_ROUTE_NAMES_GLOBAL.LIST]); // 👈 ajusta a tu HEROE_ROUTE_NAMES_GLOBAL.LIST
+    expect(mockRouter.navigate).toHaveBeenCalledWith([HEROE_ROUTE_NAMES_GLOBAL.LIST]);
   });
 });
