@@ -6,7 +6,7 @@
     ></app-button>
 </div>
 
-<app-table [columns]="columns" [dataSource]="dataSource" [messageEmpty]="message.messaeEmpty">
+<app-table [columns]="columns" [dataSource]="dataSource" [messageEmpty]="message.messaeEmpty" [filter]="true">
     <ng-template #actionsTemplate let-rowData>
         <app-menu (clickOption)="handleOption($event, rowData)" [options]="options" />
     </ng-template>

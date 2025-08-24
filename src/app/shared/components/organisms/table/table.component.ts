@@ -20,6 +20,7 @@ export class TableComponent<T> implements OnChanges, AfterViewInit {
   @Input() dataSource!: MatTableDataSource<T>;
   @Input() columns: Column<any>[] = [];
   @Input() messageEmpty: string = '';
+  @Input() filter: boolean = false;
 
   displayedColumns: string[] = [];
 
@@ -37,6 +38,14 @@ export class TableComponent<T> implements OnChanges, AfterViewInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     }
-    
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }

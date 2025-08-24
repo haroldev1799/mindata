@@ -4,6 +4,8 @@ import { MatTableModule } from '@angular/material/table';
 import { CardNotResultComponent } from '../../molecules/card-not-result/card-not-result.component';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 export const TABLE_IMPORTS = [
     MatSortModule,
@@ -11,6 +13,8 @@ export const TABLE_IMPORTS = [
     MatTableModule,
     CardNotResultComponent,
 	CommonModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule
 ];
 
