@@ -25,16 +25,12 @@ import { MatButtonModule } from '@angular/material/button';
 	templateUrl: './modal-error.component.html',
 	styleUrl: './modal-error.component.sass',
 })
-export class ModalErrorComponent implements OnInit {
+export class ModalErrorComponent {
 	private router = inject(Router);
     private dialog = inject(MatDialog);
 	data = inject<DataModalMessage>(MAT_DIALOG_DATA);
 
 	isOpen = false;
-
-	ngOnInit() {
-		console.log(this.data, ' s');
-	}
 
 
 	clickBtnAction() {

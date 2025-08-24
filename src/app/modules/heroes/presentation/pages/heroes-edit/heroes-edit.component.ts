@@ -36,12 +36,7 @@ export class HeroesEditComponent implements OnInit {
       ...event,
       id: this.heroId,
       updatedAt: Date.now(),
-    })
-    console.log({
-      ...event,
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-    })
+    });
     this.router.navigate([`${HEROE_ROUTE_NAMES_GLOBAL.LIST}`]);
   }
 
@@ -55,7 +50,6 @@ export class HeroesEditComponent implements OnInit {
             duration: 2000,
             data: { message: 'No se encontró la héroe.'}
           });
-        console.log(this.hero, ' ss')
       },
       complete: () => {
 

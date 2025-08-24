@@ -15,8 +15,6 @@ export class NumberRangeDirective {
   onInput(event: Event) {
     const input = event.target as HTMLInputElement;
     let value = Number(input.value);
-    console.log(input)
-    console.log(value)
 
     if (isNaN(value)) {
       this.control.control?.setValue(null);

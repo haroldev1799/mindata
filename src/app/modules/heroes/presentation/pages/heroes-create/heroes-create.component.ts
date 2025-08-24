@@ -23,12 +23,7 @@ export class HeroesCreateComponent {
       ...event,
       createdAt: Date.now(),
       updatedAt: Date.now(),
-    })
-    console.log({
-      ...event,
-      createdAt: Date.now(),
-      updatedAt: Date.now(),
-    })
+    });
     this.router.navigate([`${HEROE_ROUTE_NAMES_GLOBAL.LIST}`]);
   }
 }

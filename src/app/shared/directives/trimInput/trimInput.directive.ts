@@ -15,7 +15,6 @@ export class TrimInputDirective {
 	onBlur(): void {
 		const currentValue: string = this.el.nativeElement.value;
 		const trimmedValue = currentValue.trim();
-		console.log()
 
 		this.el.nativeElement.value = trimmedValue;
 

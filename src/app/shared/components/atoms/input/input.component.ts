@@ -38,6 +38,7 @@ export class InputComponent implements OnInit {
 	@Input() autocomplete = 'on';
 	@Input() addRequired = false;
 	@Input() disabled: boolean = false;
+	@Input() uppercase = false;
 	@Output() keyEnter = new EventEmitter();
 
 	inputId = `app-input-${uniqueId++}`;
