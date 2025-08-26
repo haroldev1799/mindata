@@ -20,4 +20,12 @@ describe('MenuComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit the selected option when a number is passed', () => {
+    spyOn(component.clickOption, 'emit');
+
+    component.selectOption(5);
+
+    expect(component.clickOption.emit).toHaveBeenCalledWith(5);
+  });
 });

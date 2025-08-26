@@ -1,4 +1,4 @@
-import { Component, EventEmitter, input, output, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { ButtonData, ButtonType, ButtonTypeComponent } from './button.interface';
 import {MatButtonModule} from '@angular/material/button';
 

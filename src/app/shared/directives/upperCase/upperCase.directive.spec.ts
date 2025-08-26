@@ -22,7 +22,7 @@ describe('UppercaseDirective', () => {
     const input = mockElement.nativeElement;
     input.value = 'iron man';
 
-    directive.onInput({ target: input } as any);
+    directive.onInput();
 
     expect(input.value).toBe('IRON MAN');
     expect(control.value).toBe('IRON MAN');
@@ -32,7 +32,7 @@ describe('UppercaseDirective', () => {
     const input = mockElement.nativeElement;
     input.value = 'HULK';
 
-    directive.onInput({ target: input } as any);
+    directive.onInput();
 
     expect(input.value).toBe('HULK');
     expect(control.value).toBe('HULK');
@@ -42,7 +42,7 @@ describe('UppercaseDirective', () => {
     const input = mockElement.nativeElement;
     input.value = '';
 
-    directive.onInput({ target: input } as any);
+    directive.onInput();
 
     expect(input.value).toBe('');
     expect(control.value).toBe('');

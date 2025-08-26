@@ -2,14 +2,8 @@ import {
 	ChangeDetectionStrategy,
 	ChangeDetectorRef,
 	Component,
-	EventEmitter,
 	input,
-	Input,
-	OnChanges,
 	OnInit,
-	output,
-	Output,
-	SimpleChanges
 } from '@angular/core';
 import { AbstractControl, FormControl, Validators } from '@angular/forms';
 import { I_InputType } from './input.interface';
@@ -43,17 +37,12 @@ export class InputComponent implements OnInit {
 	disabled = input<boolean>(false);
 	uppercase = input<boolean>(false);
 
-	keyEnter = output<void>();
-
 	inputId = `app-input-${uniqueId++}`;
 	labelError: null | string = null;
 	errorMessages: Record<string, string> = {};
 	controlForm = new FormControl();
 
-	constructor(private _cdr: ChangeDetectorRef) {
-		console.log(this.control(), ' 1')
-		console.log(this.controlForm, ' controlForm')
-	}
+	constructor(private _cdr: ChangeDetectorRef) {}
 
 	ngOnInit(): void {
 		if(this.control())
@@ -67,10 +56,6 @@ export class InputComponent implements OnInit {
 
 		if (this.disabled()) this.control()?.disable();
 		if (this.addRequired()) this.control()?.setValidators([Validators.required]);
-	}
-
-	enterInput() {
-		this.keyEnter.emit(this.control()?.value);
 	}
 
 	cleanError() {

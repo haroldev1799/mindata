@@ -12,7 +12,7 @@ export class UppercaseDirective {
   ) {}
 
   @HostListener('input')
-  onInput(p0: any): void {
+  onInput(): void {
     const input = this.el.nativeElement as HTMLInputElement;
     const upper = input.value.toUpperCase();
 

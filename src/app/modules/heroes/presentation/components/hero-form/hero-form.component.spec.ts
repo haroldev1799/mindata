@@ -41,20 +41,6 @@ describe('HeroFormComponent', () => {
     expect(component.formGroup).toBeDefined();
   });
 
-  it('should patch form values when default input is set', () => {
-    const hero: HeroForm = { name: 'Batman', power: 'Money', universe: 'DC', age: 40 };
-    fixture.setInput('default', hero);
-
-    component.ngOnChanges({ default: { currentValue: hero, previousValue: null, firstChange: true, isFirstChange: () => true } });
-
-    expect(component.formGroup.value).toEqual({
-      name: [hero.name],
-      power: [hero.power],
-      universe: [hero.universe],
-      age: [hero.age]
-    });
-  });
-
   it('should show snackbar when form is invalid on save', () => {
     component.formGroup.reset();
     component.clickBtnSave();

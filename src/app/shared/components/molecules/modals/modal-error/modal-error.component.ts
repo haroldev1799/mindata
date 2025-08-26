@@ -1,9 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataModalMessage } from '../modal-message-ref/modal-message-ref.interface';
 import {
-	MAT_DIALOG_DATA,
-	MatDialog,
+  MAT_DIALOG_DATA,
   MatDialogActions,
   MatDialogClose,
   MatDialogContent,
@@ -27,7 +26,6 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class ModalErrorComponent {
 	private router = inject(Router);
-    private dialog = inject(MatDialog);
 	data = inject<DataModalMessage>(MAT_DIALOG_DATA);
 
 	isOpen = false;

@@ -9,7 +9,7 @@ import { LoaderService } from '@shared/services/loader.service';
 import { DataModalMessage } from '@components/molecules/modals/modal-message-ref/modal-message-ref.interface';
 import { ModalErrorService } from '@shared/services/modal-error.service';
 import { ModalErrorComponent } from '@app/shared/components/molecules/modals/modal-error/modal-error.component';
-import { ModalErrorMessage } from '@app/shared/components/molecules/modals/modal-error/modal-error.interface';
+
 export class HttpErrorInterceptor implements HttpInterceptor {
 	private modalMessageService = inject(ModalErrorService);
 	private loaderService = inject(LoaderService);

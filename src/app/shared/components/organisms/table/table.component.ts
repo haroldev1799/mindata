@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ContentChild, input, OnChanges, signal, SimpleChanges, TemplateRef, ViewChild, inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ContentChild, input, OnChanges, SimpleChanges, TemplateRef, ViewChild, inject } from '@angular/core';
 import { TABLE_IMPORTS } from './table.component.constant';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';

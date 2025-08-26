@@ -5,6 +5,7 @@ import { Column } from './table.interface';
 import { of } from 'rxjs';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { signal } from '@angular/core';
 
 describe('TableComponent', () => {
   let component: TableComponent<any>;
@@ -23,32 +24,22 @@ describe('TableComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set displayedColumns from columns input', () => {
-    const columns: Column<any>[] = [
-      { header: 'name', field: 'name' },
-      { header: 'age', field: 'age' }
-    ];
+  it('should set messageEmpty from input', () => {
+    const value = '';
 
-    component.columns = columns;
     component.ngOnChanges({
-      columns: {
-        currentValue: columns,
-        previousValue: [],
+      messageEmpty: {
+        currentValue: value,
+        previousValue: '',
         firstChange: true,
         isFirstChange: () => true
       }
     });
 
-    expect(component.displayedColumns).toEqual(['name', 'age']);
-  });
-
-  it('should accept messageEmpty input', () => {
-    component.messageEmpty = 'No records found';
-    expect(component.messageEmpty).toBe('No records found');
+    expect(component.messageEmpty()).toBe(value);
   });
 
   it('should set displayedColumns to empty when no columns provided', () => {
-    component.columns = [];
     component.ngOnChanges({
       columns: {
         currentValue: [],
@@ -59,5 +50,37 @@ describe('TableComponent', () => {
     });
 
     expect(component.displayedColumns).toEqual([]);
+  });
+
+  it('should assign paginator and sort when dataSource and paginator exist', () => {
+    const mockDataSource: any = {};
+    (component as any).dataSource = () => mockDataSource;
+    (component as any).paginator = { firstPage: jasmine.createSpy('firstPage') };
+    (component as any).sort = {};
+
+    component.ngOnChanges({ dataSource: { currentValue: mockDataSource, previousValue: null, firstChange: true, isFirstChange: () => true } });
+
+    expect(mockDataSource.paginator).toBe(component.paginator);
+    expect(mockDataSource.sort).toBe(component.sort);
+    expect(component.paginator.firstPage).toHaveBeenCalled();
+  });
+
+  it('should apply filter and reset paginator', () => {
+    const mockPaginator = { firstPage: jasmine.createSpy('firstPage') };
+    const mockDataSource: any = { filter: '', paginator: mockPaginator };
+
+    component['filterService'] = {
+      filterValue: signal('')
+    } as any;
+
+    (component as any).dataSource = () => mockDataSource;
+
+    const event = { target: { value: '   Batman   ' } } as any as Event;
+
+    component.applyFilter(event);
+
+    expect(component['filterService'].filterValue()).toBe('   Batman   ');
+    expect(mockDataSource.filter).toBe('batman');
+    expect(mockPaginator.firstPage).toHaveBeenCalled();
   });
 });

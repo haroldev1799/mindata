@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { HeroFormComponent } from "../../components/hero-form/hero-form.component";
-import { DetailHeroResponse, Hero, HeroForm } from '@app/modules/heroes/domain/dto/heroes.dto';
+import { DetailHeroResponse, HeroForm } from '@app/modules/heroes/domain/dto/heroes.dto';
 import { HeroesRepository } from '@app/modules/heroes/domain/repository/heroes.repository';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HEROE_ROUTE_NAMES_GLOBAL } from '@app/modules/heroes/heroes.routenames';

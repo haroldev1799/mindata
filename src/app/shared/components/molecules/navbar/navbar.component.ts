@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { LAYOUT_IMPORTS } from './navbar.component.constants';
 
 @Component({
@@ -9,6 +9,6 @@ import { LAYOUT_IMPORTS } from './navbar.component.constants';
 })
 export class NavbarComponent {
 
-  @Output() sidebarAction = new EventEmitter();
+  sidebarAction = output<void>(); 
 
 }

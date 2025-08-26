@@ -12,7 +12,6 @@
         [placeholder]="placeholder()"
         [maxLength]="maxLength()"
         [autocomplete]="autocomplete()"
-        (keyup.enter)="enterInput()"
         [ngClass]="{
             invalid: labelError,
         }"
@@ -30,7 +29,6 @@
         [placeholder]="placeholder()"
         [maxLength]="maxLength()"
         [autocomplete]="autocomplete()"
-        (keyup.enter)="enterInput()"
         [min]="min() ?? 0"
         [max]="max() ?? 999999"
         [ngClass]="{

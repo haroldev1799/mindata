@@ -2,7 +2,7 @@ import { Component, inject, input, OnChanges, output, SimpleChanges } from '@ang
 import { HERO_FORM, HERO_FORM_IMPORTS } from './hero-form.component.constant';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ButtonType } from '@app/shared/components/atoms/button/button.interface';
-import { Hero, HeroForm } from '@app/modules/heroes/domain/dto/heroes.dto';
+import { HeroForm } from '@app/modules/heroes/domain/dto/heroes.dto';
 import { Router } from '@angular/router';
 import { HEROE_ROUTE_NAMES_GLOBAL } from '@app/modules/heroes/heroes.routenames';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -77,13 +77,16 @@ export class HeroFormComponent implements OnChanges {
   }
 
   private _getDefault() {
-		if (this.default && this.formGroup) {
-			this.formGroup.patchValue({
-        [HERO_FORM.Name]: [this.default()?.name],
-        [HERO_FORM.Power]: [this.default()?.power],
-        [HERO_FORM.Universe]: [this.default()?.universe],
-        [HERO_FORM.Age]: [this.default()?.age],
-			});
-		}
-	}
+    if (this.default && this.formGroup) {
+      const hero = this.default();
+      if (!hero) return;
+
+      this.formGroup.patchValue({
+        [HERO_FORM.Name]: hero.name,
+        [HERO_FORM.Power]: hero.power,
+        [HERO_FORM.Universe]: hero.universe,
+        [HERO_FORM.Age]: hero.age,
+      });
+    }
+  }
 }
