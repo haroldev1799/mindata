@@ -18,7 +18,7 @@ describe('HeroesEditComponent', () => {
   beforeEach(async () => {
     mockRepo = {
       update: jasmine.createSpy('update'),
-      getById: jasmine.createSpy('getById').and.returnValue(of(null)) // default
+      getById: jasmine.createSpy('getById').and.returnValue(of(null))
     };
     mockRouter = jasmine.createSpyObj('Router', ['navigate']);
     mockRoute = {
@@ -27,7 +27,7 @@ describe('HeroesEditComponent', () => {
     mockSnackBar = jasmine.createSpyObj('MatSnackBar', ['openFromComponent']);
 
     await TestBed.configureTestingModule({
-      imports: [HeroesEditComponent], // standalone
+      imports: [HeroesEditComponent],
       providers: [
         { provide: HeroesRepository, useValue: mockRepo },
         { provide: Router, useValue: mockRouter },
@@ -43,7 +43,7 @@ describe('HeroesEditComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    expect(component['heroId']).toBe('123'); // del ActivatedRoute
+    expect(component['heroId']).toBe('123');
     expect(mockRepo.getById).toHaveBeenCalledWith('123');
   });
 

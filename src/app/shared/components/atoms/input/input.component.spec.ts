@@ -33,7 +33,7 @@ describe('InputComponent - firstErrorMessage', () => {
 
     component.ngOnInit();
 
-    expect(component.controlForm).toBeInstanceOf(FormControl); // se queda con el inicial
+    expect(component.controlForm).toBeInstanceOf(FormControl);
   });
 
   it('should set inputId when id is provided', () => {

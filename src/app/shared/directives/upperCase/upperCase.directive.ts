@@ -16,10 +16,8 @@ export class UppercaseDirective {
     const input = this.el.nativeElement as HTMLInputElement;
     const upper = input.value.toUpperCase();
 
-    // Actualiza el DOM
     input.value = upper;
 
-    // Actualiza el FormControl si existe
     if (this.control && this.control.control) {
       this.control.control.setValue(upper, { emitEvent: false });
     }
