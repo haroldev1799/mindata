@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ContentChild, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, ContentChild, input, TemplateRef } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -13,9 +13,8 @@ export class CardComponent {
 	@ContentChild('customContent') customContent!: TemplateRef<any>;
 	@ContentChild('customActions') customActions!: TemplateRef<any>;
 
-  @Input() title!: string;
-  @Input() subTitle!: string;
-
-  @Input() customActionsClass!: string;
+  title = input<string>();
+  subTitle = input<string>();
+  customActionsClass = input<string>('');
 
 }

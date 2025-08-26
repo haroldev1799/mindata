@@ -1,7 +1,7 @@
 import { AbstractControl } from '@angular/forms';
 
-export const getErrorsMessage = (controlName: string = '', control: AbstractControl): Record<string, string> => {
-	const errors = control.errors || {};
+export const getErrorsMessage = (controlName: string = '', control: AbstractControl | undefined): Record<string, string> => {
+	const errors = control?.errors || {};
 	const stringValid = controlName.endsWith('a') ? 'válida' : 'válido';
 
 	const requiredLength = errors['minlength'] ? errors['minlength'].requiredLength : null;

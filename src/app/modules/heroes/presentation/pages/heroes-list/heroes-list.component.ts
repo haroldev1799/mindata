@@ -46,7 +46,7 @@ export class HeroesListComponent implements OnInit {
     });
   }
 
-  handleOption($event: number, rowData: Hero) {
+  handleOption($event: number | undefined, rowData: Hero) {
     switch ($event) {
       case OPTIONS_CODE.EDIT:
         this.router.navigate([`${HEROE_ROUTE_NAMES_GLOBAL.EDIT}/${rowData.id}`]);
@@ -63,6 +63,7 @@ export class HeroesListComponent implements OnInit {
 	}
 
   goCreate() {
+    console.log('gaa')
     this.router.navigate([HEROE_ROUTE_NAMES_GLOBAL.REGISTER]);
   }
 

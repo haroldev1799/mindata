@@ -32,6 +32,7 @@ describe('HeroFormComponent', () => {
 
     fixture = TestBed.createComponent(HeroFormComponent);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
 
@@ -42,7 +43,8 @@ describe('HeroFormComponent', () => {
 
   it('should patch form values when default input is set', () => {
     const hero: HeroForm = { name: 'Batman', power: 'Money', universe: 'DC', age: 40 };
-    component.default = hero;
+    fixture.setInput('default', hero);
+
     component.ngOnChanges({ default: { currentValue: hero, previousValue: null, firstChange: true, isFirstChange: () => true } });
 
     expect(component.formGroup.value).toEqual({

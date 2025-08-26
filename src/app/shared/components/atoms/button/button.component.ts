@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, input, output, Output } from '@angular/core';
 import { ButtonData, ButtonType, ButtonTypeComponent } from './button.interface';
 import {MatButtonModule} from '@angular/material/button';
 
@@ -11,20 +11,19 @@ import {MatButtonModule} from '@angular/material/button';
 export class ButtonComponent {
 	private static uniqueId = 0;
 
-	@Input() data: ButtonData | null = null;
-	@Input() label?: string;
-	@Input() severity: string = ButtonType.PRIMARY;
-	@Input() type: string = ButtonTypeComponent.BUTTON;
-	@Input() disabled = false;
-	@Input() isFullWidth = false;
-
-	@Output() clicked = new EventEmitter();
+	data = input<ButtonData | null>(null);
+	label = input<string | undefined>();
+	severity = input<string>(ButtonType.PRIMARY);
+	type = input<string>(ButtonTypeComponent.BUTTON);
+	disabled = input<boolean>(false);
+	isFullWidth = input<boolean>(false);
+	clicked = output<MouseEvent>();
 
 	readonly buttonId = `app-button-${ButtonComponent.uniqueId++}`;
 
 	readonly BUTTON_TYPE = ButtonType;
 
 	onClicked($event: MouseEvent) {
-		if (!this.disabled) this.clicked.emit($event);
+		if (!this.disabled()) this.clicked.emit($event);
 	}
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -10,6 +10,6 @@ import { CommonModule } from '@angular/common';
 })
 export class CardNotResultComponent {
 
-	@Input() message = 'No hay elementos.';
-	@Input() classesNotResult = 'default';
+	message = input<string>('No hay elementos.');
+  	classesNotResult = input<string>('default');
 }

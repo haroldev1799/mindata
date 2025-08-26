@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, inject, input, OnChanges, output, SimpleChanges } from '@angular/core';
 import { HERO_FORM, HERO_FORM_IMPORTS } from './hero-form.component.constant';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ButtonType } from '@app/shared/components/atoms/button/button.interface';
@@ -18,10 +18,10 @@ import { MODAL_MESSAGES } from '@app/core/dictionaries/messages/messages-crud';
 })
 export class HeroFormComponent implements OnChanges {
 
-  @Input() default: HeroForm | null = null;
-  @Input() title!: string;
-  @Input() isEdit: boolean = false;
-	@Output() actionForm = new EventEmitter<HeroForm>();
+  default = input<HeroForm | null>(null);
+  title = input<string>();
+  isEdit = input<boolean>(false);
+  actionForm = output<HeroForm>();
 
 	private fb = inject(FormBuilder);
 	readonly HERO_FORM = HERO_FORM;
@@ -50,7 +50,7 @@ export class HeroFormComponent implements OnChanges {
   }
 
   clickBtnCancel() {
-    this.modalService.open(this.isEdit ? MODAL_MESSAGES.modalConfirmEditCancel : MODAL_MESSAGES.modalConfirmSaveCancel, () => {
+    this.modalService.open(this.isEdit() ? MODAL_MESSAGES.modalConfirmEditCancel : MODAL_MESSAGES.modalConfirmSaveCancel, () => {
 		  this.router.navigate([`${HEROE_ROUTE_NAMES_GLOBAL.LIST}`]);
     });
 	}
@@ -61,7 +61,7 @@ export class HeroFormComponent implements OnChanges {
         this.openSnackBar('Por favor completa los campos requeridos');
         return;
     } else {
-      this.modalService.open(this.isEdit ? MODAL_MESSAGES.modalConfirmEdit : MODAL_MESSAGES.modalConfirmSave, () => {        
+      this.modalService.open(this.isEdit() ? MODAL_MESSAGES.modalConfirmEdit : MODAL_MESSAGES.modalConfirmSave, () => {        
         this.actionForm.emit(this.formGroup.getRawValue());
       });
     }
@@ -79,10 +79,10 @@ export class HeroFormComponent implements OnChanges {
   private _getDefault() {
 		if (this.default && this.formGroup) {
 			this.formGroup.patchValue({
-        [HERO_FORM.Name]: [this.default.name],
-        [HERO_FORM.Power]: [this.default.power],
-        [HERO_FORM.Universe]: [this.default.universe],
-        [HERO_FORM.Age]: [this.default.age],
+        [HERO_FORM.Name]: [this.default()?.name],
+        [HERO_FORM.Power]: [this.default()?.power],
+        [HERO_FORM.Universe]: [this.default()?.universe],
+        [HERO_FORM.Age]: [this.default()?.age],
 			});
 		}
 	}

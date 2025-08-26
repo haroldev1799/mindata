@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, input, Input, output, Output } from '@angular/core';
 import { MENU_IMPORTS } from './menu.component.constant';
 import { MenuData } from './menu.interface';
 
@@ -10,8 +10,8 @@ import { MenuData } from './menu.interface';
 })
 export class MenuComponent {
 
-  @Input() options: MenuData[] = [];
-  @Output() clickOption = new EventEmitter<number>();
+  options = input<MenuData[]>([]);
+  clickOption = output<number | undefined>();
 
   selectOption(option: number | undefined) {
     this.clickOption.emit(option);

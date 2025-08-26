@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input } from '@angular/core';
+import { Directive, HostListener, input, Input } from '@angular/core';
 import { NgControl } from '@angular/forms';
 
 @Directive({
@@ -6,8 +6,9 @@ import { NgControl } from '@angular/forms';
   standalone: true
 })
 export class NumberRangeDirective {
-  @Input() min?: number;
-  @Input() max?: number;
+
+  min = input<number>(0);
+  max = input<number>(0);
 
   constructor(private control: NgControl) {}
 
@@ -21,11 +22,11 @@ export class NumberRangeDirective {
       return;
     }
 
-    if (this.min !== undefined && value < this.min) {
-      value = this.min;
+    if (this.min !== undefined && value < this.min()) {
+      value = this.min();
     }
-    if (this.max !== undefined && value > this.max) {
-      value = this.max;
+    if (this.max !== undefined && value > this.max()) {
+      value = this.max();
     }
 
     this.control.control?.setValue(value);
